@@ -22,7 +22,9 @@ Route::get('setup', 'SetupController@index')->name('setup');
 Route::middleware('auth')->namespace('Auth')->group(
     static function (Router $authRouter) {
         // Logout.
-        $authRouter->get('logout', 'LoginController@logout')->name('logout');
+        // $authRouter->get('logout', 'LoginController@logout')->name('logout');
+        // Line above removed because the logout/ route is already defined elsewhere.
+        // @see php artisan route:list
 
         // Profile.
         $authRouter->middleware('verified')->name('profile.')->prefix('profile')->group(
